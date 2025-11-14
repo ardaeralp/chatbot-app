@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">AI Chat App</h1>
+        <p class="subtitle">Ask anything and get AI-powered responses</p>
+
+        <div class="form-group">
+            <label for="provider">Select AI Provider:</label>
+            <select id="provider" onchange="updateApiKeyField()">
+                <option value="chatgpt">ChatGPT (OpenAI)</option>
+                <option value="gemini" selected>Gemini (Google)</option>
+            </select>
+        </div>
+
+        <div class="info">
+            <strong>Note:</strong> API keys are stored statically inside the project JavaScript files for local testing. Edit `chatgpt.js` and `gemini.js` to set `STATIC_OPENAI_KEY` and `STATIC_GEMINI_KEY` respectively. This is insecure for production — prefer a server-side proxy.
+        </div>
+
+        <div id="chatgptModelGroup" class="form-group" style="display: none;">
+            <!-- <label for="chatgptModel">Select ChatGPT Model:</label>
+            <select id="chatgptModel">
+                <option value="gpt-3.5-turbo">GPT-3.5 Turbo (Fast & Affordable)</option>
+                <option value="gpt-4">GPT-4 (Most Capable)</option>
+                <option value="gpt-4-turbo-preview">GPT-4 Turbo (Latest)</option>
+                <option value="gpt-4o">GPT-4o (Optimized)</option>
+            </select> -->
+        </div>
+
+        <div id="geminiModelGroup" class="form-group" style="display: none;">
+            <!-- <label for="geminiModel">Google Gemini Models:</label>
+            <button id="loadModelsBtn" onclick="loadGeminiModels()" style="margin-top: 10px; width: 100%; padding: 10px; background-color: #667eea; color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: bold;">Load Available Models</button>
+            <select id="geminiModel" style="margin-top:10px; display:block; width:100%;">
+                <option value="">No model selected</option>
+            </select> -->
+        </div>
+
+        <div class="error" id="errorMessage"></div>
+
+        <div class="form-group">
+            <label for="inputBox">Your Question:</label>
+            <textarea id="inputBox" placeholder="Type your question here..."></textarea>
+        </div>
+
+        <div class="button-group">
+            <button id="sendBtn" onclick="sendMessage()">Send</button>
+            <button id="clearBtn" onclick="clearAll()">Clear</button>
+        </div>
+
+        <div class="loading" id="loading">
+            <span class="spinner"></span>Waiting for response...
+        </div>
+
+        <div class="form-group">
+            <label for="outputBox">ChatGPT Response:</label>
+            <textarea id="outputBox" placeholder="Response will appear here..." readonly></textarea>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="chatgpt.js"></script>
+    <script src="gemini.js"></script>
+</body>
+</html>
