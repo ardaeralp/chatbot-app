@@ -1,4 +1,4 @@
-# ChatGPT App
+# Chatbot App
 
 A simple web application that integrates with OpenAI's ChatGPT API to provide AI-powered responses.
 
